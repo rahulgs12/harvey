@@ -1,7 +1,7 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-
+# from jinja2 import Template
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -10,9 +10,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-    return 'Welcome to Harvey!'
+    return render_template('forms.html')
 
 @app.route('/upload')
 def upload():
@@ -40,7 +41,7 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file',
                                     filename=filename))
-    return render_template('upload.html')  
+    return render_template('upload.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
