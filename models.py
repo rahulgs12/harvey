@@ -12,4 +12,4 @@ class Patientfiles(db.Model):
     patientfile = db.Column(db.file(), index=True, unique=True)
 
     def __repr__(self):
-        return '<Patient {}>'.format(self.lastName)    
+        return '<Patient {}>'.format(self.lastName, self.firstName)    
