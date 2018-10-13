@@ -1,10 +1,15 @@
 from app import db
 
 class Patient(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
+    lastName = db.Column(db.String(64), index=True, unique=True)
+    firstName = db.Column(db.String(120), index=True, unique=True)
+    Birthdate = db.Column(db.String(128), index=True, unique =True)
+    patientID = db.Column(db.integer(100), index=True, unique=True)
+    patientnotes = db.Column(db.String(400), index=True, unique=True)
+    
+class Patientfiles(db.Model):
+    patientID = db.Column(db.integer(100), index=True, unique=True)
+    patientfile = db.Column(db.file(), index=True, unique=True)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)    
+        return '<Patient {}>'.format(self.lastName)    
