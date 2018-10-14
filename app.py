@@ -12,6 +12,9 @@ db = dict()
 def index():
     return render_template('index.html')
 
+@app.route('/all')
+def all():
+    return render_template('all.html', all = [(key, value['First-Name']+' '+value['Last-Name']) for key, value in db.items()])
 
 @app.route('/form')
 def form():
