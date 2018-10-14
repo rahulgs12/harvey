@@ -2,29 +2,25 @@ import os
 from flask import Flask, flash, request, redirect, url_for, render_template, abort, send_file
 from werkzeug.utils import secure_filename
 from jinja2 import Template
+from random import randint
 
 app = Flask(__name__)
+
+db = dict()
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# @app.route('/upload', methods = ['POST'])
-# def upload():
-#     file = request.files['inputFile']
-#     return file.filename
-# #     # newFile = FileContents(name = file.filename, data = file.read())
-# #     # db.session.add(newFile)
-# #     # db.session.commit()
-# #     # return ("Saved " + file.filename + ' to the database!')
 
 @app.route('/form')
 def form():
-    return render_template('forms.html')
+    return render_template('forms.html', random = ''.join(["%s" % randint(0, 9) for num in range(0, 6)]))
 
 @app.route('/new', methods=['POST'])
 def new():
-    print(request.form)
+    p = request.form.to_dict()
+    db[p['patientID']] = p
     # return 'new user added', file.filename
     file = request.files['inputFile']
     dest_path = 'uploads/' + request.form['patientID'] + '/'
