@@ -12,15 +12,26 @@
 
   </head>
   <body>
+    <script>
+      function redir() {
+        window.location.href = window.location.href + document.querySelector('#pid').value
+      }
+    </script>
     <div class="padding"></div>
     <div class="container main description">
       <h1 id="logo">+</h1>
       <h1 id="name">Harvey</h1>
       <p></p>
-      <p class="description"> Harvey is a ultra-low cost, portable, and effective hostpital data management system.</p>
+      <p class="description"> Harvey is an ultra-low cost, portable, and effective hostpital data management system.</p>
       <p class="description">
       <a href="/form">Add new Record</a><br>
-      <a href="#">Retrieve existing Record</a>
+        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Retrieve existing Record
+        </a>
+      <div class="collapse" id="collapseExample">
+        <input type="text" id="pid" placeholder="Patient ID"></input>
+        <button onClick="redir()" class="btn btn-primary">Search</button>
+      </div>
       </p>
     </div>
 
