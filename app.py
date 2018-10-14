@@ -31,12 +31,14 @@ def form():
 
 @app.route('/new', methods=['POST'])
 def new():
+    print(request.form)
     # print(request.args['lastname'])
  #   file = request.files['inputFile']
-    #return 'new user added', file.filename 
+    #return 'new user added', file.filename
     file = request.files['inputFile']
-    file.save(secure_filename(file.filename))
-    # newFile = FileContents(name = file.filename, data = file.read())  # file.read() gets the file itself 
+    os.mkdir(request.form['patientID'])
+    file.save(request.form['patientID']+'/'+secure_filename(file.filename))
+    # newFile = FileContents(name = file.filename, data = file.read())  # file.read() gets the file itself
     # db.session.add(newFile)
     # db.session.commit()
     return ('Saved ' + file.filename)
@@ -44,7 +46,7 @@ def new():
 # @app.route('/user/<username>')
 # def show_user(username):
 #     user = User.query.filter_by(username=username).first_or_404()
-#     return render_template('show_user.html', user=user)    
+#     return render_template('show_user.html', user=user)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
