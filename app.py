@@ -24,14 +24,14 @@ def form():
 
 @app.route('/new', methods=['POST'])
 def new():
-    print(request.form)    
+    print(request.form)
     # return 'new user added', file.filename
     file = request.files['inputFile']
     dest_path = 'uploads/' + request.form['patientID'] + '/'
-    if not os.path.isdir(dest_path): 
+    if not os.path.isdir(dest_path):
         os.makedirs(dest_path)
     file.save(dest_path + secure_filename(file.filename))
-    return ('Saved ' + file.filename + ' for ' + request.form['firstname'])
+    return redirect("/")
 
 # @app.route('/user/<username>')
 # def show_user(username):
@@ -51,15 +51,17 @@ def dir_listing(user):
     # # Show directory contents
     files = os.listdir(abs_path)
     files = [abs_path + '/'+ f  for f in files]
-    return render_template('files.html', files = files)
+    name = "Rahul"
+    id = "1"
+    return render_template('files.html', files = files, name = name, id = id)
 
-@app.route('/uploads/<user>/<filename>') 
-def get_file(user, filename): 
+@app.route('/uploads/<user>/<filename>')
+def get_file(user, filename):
     BASE_DIR = 'uploads/'
     abs_path = os.path.join(BASE_DIR, user, filename)
     if os.path.isfile(abs_path):
-        return send_file(abs_path)        
-    else: 
+        return send_file(abs_path)
+    else:
         return abort(404)
     return abs_path
 

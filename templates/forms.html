@@ -12,17 +12,17 @@
   </head>
   <body>
     <div class="container padding"></div>
-    <div class="container">
-      <h1>Enter New Patient Details</h1>
-
+    <div class="container form main">
+      <h1>New Patient Record</h1>
+      <br>
       <form action="/new" method="post" enctype=multipart/form-data>
         <div class="form-group">
           <label for="firstName">First Name</label>
-          <input name="firstname" type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Enter name">
+          <input name="firstname" type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Ex. Shamikh">
         </div>
         <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input name="lastname" type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Enter name">
+          <input name="lastname" type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Ex. Hossain">
         </div>
         <div class="form-group">
           <label for="birthdate">Birthdate</label>
@@ -37,9 +37,10 @@
           <textarea name="patientNotes" class="form-control" id="patientNotes" rows="3"></textarea>
         </div>
         <!-- <div c/lass="form-group"> -->
-          <label for="exampleInputFile">File Input</label>
+          <label for="exampleInputFile">Attachments</label><br>
           <input type="file" name="inputFile" aria-describedby="fileHelp">
-          <small id="fileHelp" class="form-text text-muted"></small>
+          <br>
+          <br>
         <!-- </div> -->
         <button type="submit" class="btn btn-primary">Submit</button>
         <!-- <input type=submit value=Upload> -->
