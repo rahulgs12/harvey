@@ -18,23 +18,23 @@
       <form action="/new" method="post" enctype=multipart/form-data>
         <div class="form-group">
           <label for="firstName">First Name</label>
-          <input name="firstname" type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Ex. Shamikh">
+          <input name="First-Name" type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Ex. Shamikh">
         </div>
         <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input name="lastname" type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Ex. Hossain">
+          <input name="Last-Name" type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Ex. Hossain">
         </div>
         <div class="form-group">
           <label for="birthdate">Birthdate</label>
-          <input name="birthdate" type="date" class="form-control" id="birthdate" placeholder="00/00/00">
+          <input name="Birthdate" type="date" class="form-control" id="birthdate" placeholder="00/00/00">
         </div>
         <div class="form-group">
           <label for="patientID">Patient ID</label>
-          <input name="patientID" type="text" class="form-control" id="patientID" placeholder="0000000" disabled value="{{ random }}">
+          <input name="patientID" type="text" class="form-control" id="patientID" placeholder="0000000" value="{{ random }}">
         </div>
         <div class="form-group">
           <label for="patientNotes">Patient Notes</label>
-          <textarea name="patientNotes" class="form-control" id="patientNotes" rows="3"></textarea>
+          <textarea name="Notes" class="form-control" id="patientNotes" rows="3"></textarea>
         </div>
         <!-- <div c/lass="form-group"> -->
           <label for="exampleInputFile">Attachments</label><br>

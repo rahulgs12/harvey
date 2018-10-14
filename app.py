@@ -20,6 +20,7 @@ def form():
 @app.route('/new', methods=['POST'])
 def new():
     p = request.form.to_dict()
+    print(p)
     db[p['patientID']] = p
     # return 'new user added', file.filename
     file = request.files['inputFile']
@@ -47,9 +48,12 @@ def dir_listing(user):
     # # Show directory contents
     files = os.listdir(abs_path)
     files = [abs_path + '/'+ f  for f in files]
-    name = "Rahul"
-    id = "1"
-    return render_template('files.html', files = files, name = name, id = id)
+
+    if user in db:
+        name = db[user]['First-Name'] + ' ' + db[user]['Last-Name']
+        id = user
+
+    return render_template('files.html', files = files, name = name, id = id, params = [(k, v) for k, v in db[user].items()])
 
 @app.route('/uploads/<user>/<filename>')
 def get_file(user, filename):

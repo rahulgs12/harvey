@@ -16,7 +16,22 @@
   <body>
     <div class="padding"></div>
     <div class="container main description">
-      <h1>Records for {{ name }} - {{ id }}</h1>
+      <h1>Records for {{ name }}</h1>
+      <br>
+      <table class="table table-hover">
+      {% for entry in params %}
+        <tr>
+          <td>
+            {{ entry[0]}}
+          </td>
+          <td>
+            {{ entry[1]}}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <br><br>
+    <h3>Attachments</h3>
       <ul>
           {% for file in files %}
           <li><a href="{{ file }}">{{ file.split('/')[2] }}</a></li>
