@@ -12,7 +12,7 @@ lxml==4.2.1
 oauthlib==2.1.0
 parse==1.8.4
 Pillow==5.2.0
-Pygments==2.2.0
+Pygments==2.7.4
 pyquery==1.4.0
 PySocks==1.6.8
 python-pptx==0.6.10
